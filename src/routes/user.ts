@@ -47,8 +47,8 @@ router.post("/signup", async (req, res) => {
     //Setting Cookie
     res.cookie("token", token, {
       httpOnly: true,
-      sameSite: "lax",
-      secure: false,
+      secure: true,
+      sameSite: "none",
     });
 
     res.status(200).json({ token, message: "Signup Successfully" });
@@ -89,8 +89,8 @@ router.post("/signin", async (req, res) => {
     //Setting Cookie
     res.cookie("token", token, {
       httpOnly: true,
-      sameSite: "lax",
-      secure: false,
+      secure: true,
+      sameSite: "none",
     });
 
     return res.status(200).json({ token, message: "Signin Successfully" });
